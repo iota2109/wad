@@ -1,0 +1,66 @@
+====================chit 5
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Registered Users List</h2>
+    <div id="list"></div>
+    <br>
+    <a href="index.html">Back to Register</a>
+
+    <script>
+        // 1. Get data from Local Storage
+        let users = JSON.parse(localStorage.getItem("userList")) || [];
+        let listDiv = document.getElementById("list");
+
+        // 2. Display it
+        if (users.length === 0) {
+            listDiv.innerHTML = "No users found.";
+        } else {
+            let html = "<ul>";
+            users.forEach(u => {
+                html += `<li><strong>${u.name}</strong> - ${u.email}</li>`;
+            });
+            html += "</ul>";
+            listDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+////////////////////////////////display.html
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>User Registration (AJAX + Local Storage)</h2>
+    <form id="regForm">
+        Name: <input type="text" id="name"><br><br>
+        Email: <input type="text" id="email"><br><br>
+        <button type="button" onclick="saveData()">Submit</button>
+    </form>
+
+    <script>
+        function saveData() {
+            // 1. Get values
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+
+            // 2. Create the "Data Object" (The POST payload)
+            let userData = { name: name, email: email };
+
+            // 3. Simulating AJAX POST (Pushing to Local Storage)
+            // In a real exam, we'd use 'fetch', but for local storage, this is the logic:
+            let users = JSON.parse(localStorage.getItem("userList")) || [];
+            users.push(userData);
+            localStorage.setItem("userList", JSON.stringify(users));
+
+            alert("Data Saved Successfully!");
+            // 4. Redirect to the new page to show the list
+            window.location.href = "display.html";
+        }
+    </script>
+</body>
+</html>
+/////////////////////////////////////////index.html
