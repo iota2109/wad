@@ -1,0 +1,59 @@
+=======================chit 12
+
+<h1>About Page</h1>
+<a href="index.html">Back Home</a>
+//////////////////////////////about.html
+
+
+<a href="about.html">Go to About Page</a> <br><br>
+<a href="#section2">Jump to Section 2</a> <div style="margin-top: 1000px;"> <h2 id="section2">Section 2</h2>
+  <p>You arrived at the bottom!</p>
+</div>
+////////////////////////////////index.html
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+</head>
+<body>
+    <h2 align="center">User Registration</h2>
+    <form>
+        <table align="center" cellpadding="10">
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="fname" placeholder="Enter First Name"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="lname" placeholder="Enter Last Name"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" name="email" placeholder="name@domain.com"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="pass"></td>
+            </tr>
+            <tr>
+                <td>Mobile Number:</td>
+                <td><input type="text" name="mobile" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><textarea name="address" rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Register">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+//////////////////////////////////////////////registrations.html
