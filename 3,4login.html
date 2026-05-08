@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="style.css"> <nav>
+    <a onclick="show('home')">Home</a>
+    <a onclick="show('login')">Login</a>
+    <a onclick="show('reg')">Register</a>
+</nav>
+
+<div id="home" class="page active">
+    <h1>Welcome Home</h1>
+</div>
+
+<div id="login" class="page">
+    <style> .login-title { color: darkblue; } </style> <h2 class="login-title">Login</h2>
+    <form>
+        User: <input type="text"><br><br>
+        Pass: <input type="password"><br><br>
+        <button type="button" onclick="show('home')">Login</button>
+    </form>
+</div>
+
+<div id="reg" class="page">
+    <h2 style="color: green;">Register</h2> <form onsubmit="alert('Done!'); return false;">
+        Name: <input type="text"><br><br>
+        Email: <input type="email"><br><br>
+        <button>Submit</button>
+    </form>
+</div>
+
+<script>
+    function show(id) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+</script>

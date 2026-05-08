@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Registration Form (Chit 2)</h2>
+    
+    <form onsubmit="return validate()">
+        First Name: <input type="text" id="fn"><br><br>
+        Last Name: <input type="text" id="ln"><br><br>
+        Address: <textarea id="addr"></textarea><br><br>
+        Email: <input type="text" id="em"><br><br>
+        Mobile: <input type="text" id="ph"><br><br>
+        Password: <input type="password" id="ps"><br><br>
+        
+        <button type="submit">Register</button>
+    </form>
+
+    <script>
+        function validate() {
+            // Fetching all values
+            var fname = document.getElementById("fn").value;
+            var lname = document.getElementById("ln").value;
+            var address = document.getElementById("addr").value;
+            var email = document.getElementById("em").value;
+            var phone = document.getElementById("ph").value;
+            var pass = document.getElementById("ps").value;
+
+            // 1. First Name (Alphabets only AND Length >= 6)
+            var namePattern = /^[A-Za-z]+$/;
+            if (!namePattern.test(fname) || fname.length < 6) {
+                alert("First Name must be alphabets only and at least 6 chars long");
+                return false;
+            }
+
+            // 2. Password (Length >= 6)
+            if (pass.length < 6) {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+
+            // 3. Email (Standard pattern name@domain.com)
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email)) {
+                alert("Enter a valid email address");
+                return false;
+            }
+
+            // 4. Mobile Number (Exactly 10 digits)
+            var phonePattern = /^[0-9]{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Phone must be exactly 10 digits");
+                return false;
+            }
+
+            // 5. Last Name and Address (Not Empty)
+            if (lname == "" || address == "") {
+                alert("Last Name and Address cannot be empty");
+                return false;
+            }
+
+            alert("All validations passed! Form submitted.");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

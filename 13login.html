@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Validation - Chit 13</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #f4f4f4; }
+        .login-box { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 320px; }
+        h2 { text-align: center; color: #333; }
+        input { width: 100%; padding: 12px; margin: 8px 0; display: inline-block; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background-color: #007bff; color: white; padding: 14px 20px; margin: 8px 0; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="email" placeholder="Email Address">
+        <input type="password" id="pass" placeholder="Password">
+        <button type="submit">Sign In</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        // 1. Fetching values from the UI
+        var email = document.getElementById("email").value;
+        var pass = document.getElementById("pass").value;
+
+        // 2. CHIT 13: Null/Empty Validation
+        if (email == "" || pass == "") {
+            alert("Error: All fields are mandatory!");
+            return false;
+        }
+
+        // 3. Essential Format Validation (Email)
+        var atPos = email.indexOf("@");
+        var dotPos = email.lastIndexOf(".");
+        
+        // Logical check: @ must exist, and . must come after @
+        if (atPos < 1 || dotPos < atPos + 2 || dotPos + 2 >= email.length) {
+            alert("Error: Please enter a valid email address!");
+            return false;
+        }
+
+        alert("Validation Successful! Logging in...");
+        return true; 
+    }
+</script>
+
+</body>
+</html>

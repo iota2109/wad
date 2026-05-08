@@ -1,0 +1,6 @@
+body { font-family: sans-serif; text-align: center; background: #eee; }
+nav { background: #333; padding: 10px; }
+nav a { color: white; margin: 10px; cursor: pointer; text-decoration: none; }
+.page { display: none; padding: 20px; }
+.active { display: block; }
+form { background: white; padding: 20px; display: inline-block; border: 1px solid #ccc; }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Login Page (Chit 7)</h2>
+    
+    <form onsubmit="return validate()">
+        Username: <input type="text" id="u"><br>
+        <small>(Min 8 chars, 1 Upper, 1 Lower, 1 Number, 1 Special)</small><br><br>
+        
+        Password: <input type="password" id="p"><br>
+        <small>(Min 8 chars, 1 Upper, 1 Special)</small><br><br>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        function validate() {
+            var user = document.getElementById("u").value;
+            var pass = document.getElementById("p").value;
+
+            // 1. Username Validation
+            var userPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+            
+            if (!userPattern.test(user)) {
+                alert("Username must have 8+ chars, 1 Upper, 1 Lower, 1 Number, and 1 Special Char");
+                return false;
+            }
+
+            // 2. Password Validation
+            var passPattern = /^(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+
+            if (!passPattern.test(pass)) {
+                alert("Password must have 8+ chars, 1 Upper, and 1 Special Char");
+                return false;
+            }
+
+            alert("Validation Successful!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

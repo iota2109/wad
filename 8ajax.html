@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #timer-box { float: right; padding: 10px; background: yellow; border: 1px solid black; }
+        .info { color: blue; }
+    </style>
+</head>
+<body>
+
+    <div id="timer-box">
+        Timer: <span id="seconds">0</span>s
+    </div>
+
+    <h2>The "Proof" Form</h2>
+    
+    <form action=""> 
+        Data: <input type="text" id="data">
+        
+        <button type="button" onclick="loadAjax()">Submit with AJAX</button>
+
+        </form>
+
+    <div id="res"></div>
+
+    <script>
+        // Timer that proves the refresh
+        let count = 0;
+        setInterval(() => {
+            count++;
+            document.getElementById("seconds").innerText = count;
+        }, 1000);
+
+        function loadAjax() {
+            let val = document.getElementById("data").value;
+            document.getElementById("res").innerHTML = "<p class='info'>AJAX: Saved " + val + " without resetting timer!</p>";
+        }
+    </script>
+</body>
+</html>
